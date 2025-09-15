@@ -21,14 +21,15 @@ import TeacherAttendance from './pages/TeacherAttendance'
 import TeacherResult from './pages/TeacherResult'
 import TeacherClasses from './pages/TeacherClasses'
 import ResultId from './pages/ResultId'
-import AttendanceId from './AttendanceId'
-import ChildResults from './ChildsResults'
-import ChildResultId from './ChildResultId'
-import ChildAttendance from './ChildAttendance'
-import ChildAttendanceId from './ChildAttendanceId'
-import Teacherdetails from './Teacherdetails'
-import ParentDetails from './ParentDetails'
-import StudentDetails from './StudentDetails'
+import AttendanceId from './pages/AttendanceId'
+import ChildResults from './pages/ChildsResults'
+import ChildResultId from './pages/ChildResultId'
+import ChildAttendance from './pages/ChildAttendance'
+import ChildAttendanceId from './pages/ChildAttendanceId'
+import Teacherdetails from './pages/Teacherdetails'
+import ParentDetails from './pages/ParentDetails'
+import StudentDetails from './pages/StudentDetails'
+import Profile from './pages/Profile'
 
 const App = () => {
 
@@ -68,6 +69,9 @@ const App = () => {
           <Route path='dashboard/child/results/:id' element={ <ChildResultId />} />
           <Route path='dashboard/child/attendance' element={ <ChildAttendance />} />
           <Route path='dashboard/child/attendance/:id' element={ <ChildAttendanceId />} />
+
+          <Route path='dashboard/:id/profile' element={ <Profile />} />
+          <Route path='*' element={ <div className='text-center mt-20 text-3xl font-bold'>404! Page Not Found</div>} />
         </Route>
       </Route>
     )

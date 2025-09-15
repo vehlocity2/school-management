@@ -60,26 +60,34 @@ const Login = () => {
     }
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    try {
-        const user = await Login(email, password, role)
-        
-        if(role === "admin"){
-            navigate('/dashboard/admin');
-        }else if(role === "student"){
-            navigate('/dashboard/students');
-        } else if(role === "teacher"){
-            navigate('/dashboard/teachers');
-        } else if(role === "parent"){
-            navigate('/dashboard/parents');
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+
+      try {
+        const loggedInUser = Login(email, password, role);
+
+        // Navigate based on role
+        switch (loggedInUser.role) {
+          case "admin":
+            navigate("/dashboard/admin");
+            break;
+          case "student":
+            navigate("/dashboard/students");
+            break;
+          case "teacher":
+            navigate("/dashboard/teachers");
+            break;
+          case "parent":
+            navigate("/dashboard/parents");
+            break;
+          default:
+            navigate("/");
         }
-    } catch (error) {
-        
-    }
-    
-  }
+      } catch (error) {
+        alert(error.message); // Show error if login fails
+      }
+    };
+
 
   return (
     <div className='flex flex-col justify-center items-center min-h-screen overflow-y-auto md:my-7 px-4 sm:px-6 lg:px-8'>
